@@ -83,9 +83,58 @@ ex4(spisok_elementov_re)
 
 
 def ex5():
-    data = open("New_doc.txt", "r+")
+    data = open(r"seminar1\homework\New_doc.txt", "w+")
+    new_line = ""
+    for line in data:
+        spisok_stroka = (ex5_2(ex5_1(line)))
+        for elem in spisok_stroka:
+            new_line+=elem
+        
+        data.write = new_line
+        print(data.line)
+        new_line = ""
 
+    
     data.close
+def ex5_1(stroka):
+    list_numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+    list_txt_numbers = []
+    temp = ""
+    count = 0
+    for i in stroka:
+        if i in list_numbers:
+            temp+=i
+            
+        else:
+            if stroka[count-1] in list_numbers:
+                list_txt_numbers.append(temp)
+                temp = ""
+                list_txt_numbers.append(i)
+            else:
+                list_txt_numbers.append(i)
+
+        if (count == len(stroka)-1 and i in list_numbers):
+            list_txt_numbers.append(temp)
+        count+=1   
+
+    return list_txt_numbers
+
+
+
+def ex5_2(new_stroka):
+    list_numbers = [ "2", "4", "6", "8", "0"]
+    new_string = ""
+    for str in new_stroka:
+        if str[len(str)-1] in list_numbers:
+            new_stroka.remove(str)
+    return (new_stroka)
+
+
+
+
+
+
+
 
 ex5()
 
@@ -120,7 +169,7 @@ def extra_6(rim_num):
 
     print(arab_number)
 
-extra_6(rim_num)
+#extra_6(rim_num)
 
 
 
