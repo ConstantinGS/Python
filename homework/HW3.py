@@ -181,6 +181,56 @@ def extra_6(rim_num):
 
 
 
+#2.	Определите функцию, которая удаляет весь текст, следующий за любым из переданных маркеров комментариев. 
+# Любые пробелы в конце строки также должны быть удалены.
+#Пример: 
+#Входные данные:
+#«apples, pears # and bananas
+#grapes
+#bananas !apples          » 
+#Выходные данные:
+#«apples, pears
+#grapes
+#bananas»
+#Функция может вызываться вот так:
+#result = function("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"])
+
+
+def extra2(text, spisok_merkerov):
+    data = open("New_doc2.txt", "w+")
+    old_data = data.write(text)
+    data.close
+
+    data = open("New_doc2.txt", "r")
+    new_data = []
+    for st in data:
+        new_line = ""
+        for i in st:
+            if i in spisok_merkerov:
+                new_line+="\n"
+                break
+            new_line+=i
+        print(new_line)
+        new_data.append(new_line)
+
+    data.close
+
+    print(new_data)
+
+    data = open("New_doc2.txt", "w")
+    data.writelines(new_data)
+    data.close
+        
+
+
+    data = open("New_doc2.txt", "r")
+    data.readlines()
+    data.close
+    
+
+extra2("apples, pears # and bananas\ngrapes\nbananas !apples \n !gjvbhbl\n dfgvdsfg #vdsfvdf ", ["#", "!"])
+
+
 
 
 
