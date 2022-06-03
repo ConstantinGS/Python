@@ -83,19 +83,27 @@ ex4(spisok_elementov_re)
 
 
 def ex5():
-    data = open(r"\homework\New_doc.txt", "w+")
+    data = open(r"homework\New_doc.txt", "r")
     new_line = ""
-    for line in data:
+    new_data = data.readlines()
+    count = 0
+
+    for line in new_data:
+
         spisok_stroka = (ex5_2(ex5_1(line)))
         for elem in spisok_stroka:
             new_line+=elem
         
-        data.write = new_line
-        print(data.line)
+        new_data[count] = new_line
         new_line = ""
+        count+=1
 
-    
     data.close
+
+    data = open(r"homework\New_doc.txt", "w")
+    data.writelines(new_data)
+    data.close
+
 def ex5_1(stroka):
     list_numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
     list_txt_numbers = []
